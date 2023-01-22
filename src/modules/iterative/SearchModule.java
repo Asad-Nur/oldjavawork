@@ -8,7 +8,7 @@ package modules.iterative;
 public class SearchModule {
 
     //TODO: Complete this search algorithm to find an element location is in array
-    //      use while loops here
+    //      use while loops here test
     public static int binarySearch(int[] data, int target){
         //TODO: update with search algorithm
         return 0;
