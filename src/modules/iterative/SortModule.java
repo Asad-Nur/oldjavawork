@@ -15,9 +15,7 @@ public class SortModule {
         for (int i=0; i < data.length - 1; i++){
             for(int j= 0; j < data.length - i -1; j++){
                 if ( data[j] >data[j+1]){
-                    int temp = data[j];
-                    data[j] = data[j+1];
-                    data[j + 1] = temp;
+                    swap(data, j, j+1);
 
                 }
             }
@@ -60,8 +58,9 @@ public class SortModule {
         //       (1)
         for(int i = 0; i < n; i++)     // n times
             // (1  + 1)
-            if(max < data[i])               // (1)
-                max = data[i];              // (1)
+            if (max < data[i])                // (1)
+                max = data[i];
+            // (1)
         // (1)      terminates loop
         return max;                     // (1)
 
@@ -77,7 +76,6 @@ public class SortModule {
         int i;
         int j;
         int indexSmallest;
-        int temp;
 
         for (i = 0; i < data.length - 1; ++i){
             indexSmallest = i;
@@ -86,9 +84,7 @@ public class SortModule {
                     indexSmallest = j;
                 }
             }
-            temp = data[i];
-            data[i] = data[indexSmallest];
-            data[indexSmallest] = temp;
+            swap(data, i, indexSmallest);
         }
     }
 
@@ -96,5 +92,8 @@ public class SortModule {
     //TODO: Update/Complete the following swap method
     public static void swap(int[] data, int a, int b) {
         //TODO: Complete Body
+        int temp = data[a];
+        data[a] = data[b];
+        data[b] = temp;
     }
 }

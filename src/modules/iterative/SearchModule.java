@@ -13,25 +13,22 @@ public class SearchModule {
 
     public static int binarySearch(int[] data, int target){
         //TODO: update with search algorithm
-        int low;
-        int mid;
-        int high;
 
-        low = 0;
-        high = data.length - 1;
+        int min = 0;
+        int max = data.length - 1;
 
-        while (high >= low) {
-            mid = (high + low) / 2;
+        while (max >= min) {
+            int mid = (max + min) / 2;
             if (data[mid] < target) {
-                low = mid + 1;
+                min = mid + 1;
             } else if (data[mid] > target) {
-                high = mid - 1;
+                max = mid - 1;
             } else {
                 return mid;
             }
         }
 
-        return 0;
+        return -1;
     }
 
 
@@ -55,7 +52,7 @@ public class SearchModule {
                 return i;
             }
             }
-        return 0;
+        return -1;
     }
 
 }
