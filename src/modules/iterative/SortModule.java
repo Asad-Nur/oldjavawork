@@ -11,6 +11,19 @@ public class SortModule {
     //      using for loops and swap method (see below)
     public static void bubbleSort(int[] data) {
         //TODO: Complete Body
+
+        for (int i=0; i < data.length - 1; i++){
+            for(int j= 0; j < data.length - i -1; j++){
+                if ( data[j] >data[j+1]){
+                    int temp = data[j];
+                    data[j] = data[j+1];
+                    data[j + 1] = temp;
+
+                }
+            }
+
+        }
+
     }
 
 
@@ -18,6 +31,23 @@ public class SortModule {
     //      using for loops
     public static void insertionSort(int[] data) {
         //TODO: Complete Body
+        int i;
+        int j;
+        int temp;
+
+        for (i = 1; i < data.length; ++i){
+
+            j=i;
+
+            while (j > 0 && data[j] < data[j - 1]){
+
+                temp = data[j-1];
+                data[j] = data[j-1];
+                data[j-1] = temp;
+                --j;
+            }
+
+        }
     }
 
 
@@ -44,6 +74,22 @@ public class SortModule {
     //      using for loops and swap method (see below)
     public static void selectionSort(int[] data) {
         //TODO: Complete Body
+        int i;
+        int j;
+        int indexSmallest;
+        int temp;
+
+        for (i = 0; i < data.length - 1; ++i){
+            indexSmallest = i;
+            for (j= i + 1; j < data.length; ++j){
+                if ( data[j] < data[indexSmallest]){
+                    indexSmallest = j;
+                }
+            }
+            temp = data[i];
+            data[i] = data[indexSmallest];
+            data[indexSmallest] = temp;
+        }
     }
 
 
