@@ -31,7 +31,7 @@ public class SearchModule {
             }
         }
 
-        return 0;
+        return -1;
     }
 
 
@@ -55,7 +55,7 @@ public class SearchModule {
                 return i;
             }
             }
-        return 0;
+        return -1;
     }
 
 }
