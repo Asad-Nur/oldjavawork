@@ -28,7 +28,6 @@ public class SortModule {
     //TODO: Update/Complete the following insertionSort algorithm
     //      using for loops
     public static void insertionSort(int[] data) {
-        //TODO: Complete Body
         int i;
         int j;
         int temp;
@@ -39,7 +38,7 @@ public class SortModule {
 
             while (j > 0 && data[j] < data[j - 1]){
 
-                temp = data[j-1];
+                temp = data[j];
                 data[j] = data[j-1];
                 data[j-1] = temp;
                 --j;

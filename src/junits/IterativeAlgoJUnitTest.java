@@ -1,14 +1,12 @@
 package junits;
 
 import org.junit.jupiter.api.Test;
+
 import java.util.Random;
 
 import static modules.iterative.SearchModule.binarySearch;
 import static modules.iterative.SearchModule.contains;
-import static modules.iterative.SortModule.bubbleSort;
-import static modules.iterative.SortModule.insertionSort;
-import static modules.iterative.SortModule.selectionSort;
-
+import static modules.iterative.SortModule.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -32,7 +30,7 @@ public class IterativeAlgoJUnitTest {
     }
 
     @Test
-    void testBinarySearch() {
+     void testBinarySearch() {
 
         int[] list = makeList();
         selectionSort(list);		//list must be sorted
