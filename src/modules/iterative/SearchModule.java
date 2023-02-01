@@ -34,8 +34,8 @@ public class SearchModule {
 
     //TODO: Complete this search algorithm to check if an element is in array
    public static boolean contains(int[] data, int target) {
-       for (int datum : data) {
-           if (datum == target) {
+       for (int i = 0; i < data.length; i++) {
+           if (data[i] == target) {
                return true;
            }
        }
