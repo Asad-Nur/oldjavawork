@@ -90,6 +90,9 @@ public class FibonacciTest {
         checkRecursiveFib(11);
         checkMemoizedFib(11);
         checkIterativeFib(11);
+        checkLargeNRecursion(49);
+        checkLargeNMemoization(49);
+        checkLargeNIteration(49);
     }
 
 }
