@@ -58,7 +58,7 @@ public class SortModule {
     private static int partition(int[] data, int low, int high) {
         //TODO: update with partition algorithm
         int midpoint = (low + high) / 2;
-        int pivot = data[midpoint]; ;
+        int pivot = data[midpoint];
         boolean done = false;
         while (!done) {
             while (data[low] < pivot) { ++low; }
