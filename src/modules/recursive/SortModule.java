@@ -4,21 +4,21 @@ public class SortModule {
 
     private static int[] getFirstHalf(int[] data) {
         //TODO : update to get first half of array
-        int[] result = new int[data.length / 2];
-        for (int i = 0; i < result.length; i++) {
-            result[i] = data[i];
+        int[] firstHalf = new int[data.length / 2];
+        for (int i = 0; i < firstHalf.length; i++) {
+            firstHalf[i] = data[i];
         }
-        return result;
+        return firstHalf;
     }
 
 
     private static int[] getSecondHalf(int[] data) {
         //TODO : update to get second half of array
-        int[] result = new int[data.length - data.length / 2];
-        for (int i = 0; i < result.length; i++) {
-            result[i] = data[data.length / 2 + i];
+        int[] secondHalf = new int[data.length - data.length / 2];
+        for (int i = 0; i < secondHalf.length; i++) {
+            secondHalf[i] = data[data.length / 2 + i];
         }
-        return result;
+        return secondHalf;
     }
 
 
