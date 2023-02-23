@@ -4,7 +4,7 @@ public class SortModule {
 
     private static int[] getFirstHalf(int[] data) {
         //TODO : update to get first half of array
-        int[] firstHalf = new int[data.length / 2];
+        int[] firstHalf = new int [data.length / 2];
         for (int i = 0; i < firstHalf.length; i++) {
             firstHalf[i] = data[i];
         }
@@ -14,7 +14,7 @@ public class SortModule {
 
     private static int[] getSecondHalf(int[] data) {
         //TODO : update to get second half of array
-        int[] secondHalf = new int[data.length - data.length / 2];
+        int[] secondHalf = new int [data.length - data.length / 2];
         for (int i = 0; i < secondHalf.length; i++) {
             secondHalf[i] = data[data.length / 2 + i];
         }
