@@ -141,21 +141,16 @@ public class ArrayList <E> {
     }
 
 
-    //constructs an iterator that iterates over current list
-    public ArrayListIterator iterator(){
-        return new ArrayListIterator(this);
-    }
+
 
     //removes the value at the specified index
     public E remove(int index) {
-        checkIndex(index);
-        E removedItem = data[index];
-        for (int i = index; i < size - 1; i++) {
-            data[i] = data[i + 1];
-        }
-        data[size - 1] = null;
-        size--;
-        return removedItem;
+       E removedItem = data[index];
+       for (int i = index; i < size -1; i++){
+           data[i] = data[i+1];
+       }
+       size--;
+       return removedItem;
     }
 
 
