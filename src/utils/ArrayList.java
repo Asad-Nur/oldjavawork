@@ -77,6 +77,16 @@ public class ArrayList <E>{
         return size == 0;
     }
 
+
+    //replaces value at index with the given value
+
+
+    //returns the current number of elements in the list
+    public int size(){
+        return size;
+    }
+
+
     //prints out the values in sequence from 0 to length - 1
     public String toString(){
         if(isEmpty()){
