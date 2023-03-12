@@ -1,6 +1,6 @@
 package utils;
 
-import java.util.Array
+import week08$iterators.ArrayListIterator;
 /*****************************************************************
  * This class ArrayList implements a contiguous block of data
  * using an array.
@@ -19,8 +19,8 @@ public class ArrayList <E> {
     public static final int DEFAULT_CAPACITY = 10;
 
     // these are the data fields listed in the lab documentation
-    private E[] data;           // reference for an array of type E
-    private int size;           // stores the number of occupied places in the array.
+    E[] data;           // reference for an array of type E
+    int size;           // stores the number of occupied places in the array.
 
     public ArrayList() {
         this(DEFAULT_CAPACITY);
@@ -142,7 +142,9 @@ public class ArrayList <E> {
 
 
     //constructs an iterator that iterates over current list
-
+    public ArrayListIterator iterator(){
+        return new ArrayListIterator(this);
+    }
 
     //removes the value at the specified index
     public E remove(int index) {
