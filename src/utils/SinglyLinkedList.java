@@ -68,15 +68,15 @@ public class SinglyLinkedList<T> {
     // This is an inner class that is decoupled from outer class.
     // The purpose is primarily for storage of data and next reference in linked
     // sequence.
-    private static class Node<E>{
+    public class Node<E>{
         E data;             // data storage
         Node<E> next;       // self-reference
 
-        private Node(E data){
+        public Node(E data){
             this(data, null);
         }
 
-        private Node(E data, Node<E> next){
+        public Node(E data, Node<E> next){
             this.data = data;
             this.next = next;
         }
