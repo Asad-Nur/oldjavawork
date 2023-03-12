@@ -32,6 +32,26 @@ public class ReverseWordsTest {
 
         //TODO: REVERSE LINES
         //TODO: REVERSE WORDS
+        // Loop through each line in the input file
+        while(scanner.hasNextLine()){
+            // Read the current line from the input file
+            String line = scanner.nextLine();
+
+            // Split the line into individual words
+            String[] words = line.split(" ");
+
+            // Use a StringBuilder to construct a new string with the words in reverse order
+            StringBuilder sb = new StringBuilder();
+            for(int i=words.length-1; i>=0; i--){
+                sb.append(words[i]).append(" ");
+            }
+
+            // Remove the trailing space from the reversed line
+            String reversedLine = sb.toString().trim();
+
+            // Add the reversed line to the list
+            list.add(reversedLine);
+        }
 
         scanner.close();
     }
