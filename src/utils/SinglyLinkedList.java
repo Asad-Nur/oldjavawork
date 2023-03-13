@@ -82,6 +82,7 @@ public class SinglyLinkedList<T> {
     }
 
     public boolean isEmpty(){
+
         return first == null && size == 0;
     }
 
