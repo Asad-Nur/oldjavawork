@@ -73,6 +73,7 @@ public class SinglyLinkedList<T> {
         Node<E> next;       // self-reference
 
         public Node(E data){
+
             this(data, null);
         }
 
