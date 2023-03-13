@@ -48,20 +48,23 @@ public class ArrayList <E> {
     }
 
 
-    //inserts a given value at the index specified, shifting subsequent values to the right
-    public boolean add(int index, E item) {
-        int oldSize = size;
+    // inserts a given value at the index specified, shifting subsequent values to the right
+    public void add(int index, E item) {
+        if(index < 0 || index > size){      //checks to see if index is in bound
+            throw new IndexOutOfBoundsException("Invalid index");   //breaks if index is out of bounds
+        }
+
         ensureCapacity(size + 1);
-        for (int i = size; i > index; i--) {
-            data[i] = data[i - 1];
+
+        for (int i = size-1; i >= index; i--) {
+            data[i + 1] = data[i];
         }
         data[index] = item;
         size++;
-        return size == (oldSize + 1);
     }
 
 
-    //appends another list to current list
+    // appends another list to current list
     public boolean addAll(ArrayList<E> other) {
         if (other == null) {
             return false;
@@ -75,31 +78,31 @@ public class ArrayList <E> {
     }
 
 
-    //checks if current index is valid
+    // checks if current index is valid
     private void checkIndex(int index) {
-        if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("Invalid Index: " + index);
+        if (index < 0 || index >= size) {       // checks to see if in bound/exists
+            throw new IndexOutOfBoundsException("Invalid Index");
         }
     }
 
 
-    //clears elements in the list
+    // clears elements in the list
     public void clear() {
         size = 0;
     }
 
 
-    //returns true if value is in the list and false if it isn't
+    // returns true if value is in the list and false if it isn't
     public boolean contains(E item) {
         for (int i = 0; i < size; i++) {
             if (data[i].equals(item)) {
-                return true;        //FOUND
+                return true;        // FOUND
             }
         }
-        return false;           //NOT FOUND
+        return false;           // NOT FOUND
     }
 
-    @SuppressWarnings("unchecked")
+
     public void ensureCapacity(int targetCapacity) {
 
         // checks if needed capacity > current array length
@@ -122,10 +125,21 @@ public class ArrayList <E> {
     }
 
 
-    //returns the value of item at the specified index
+    // returns the value of item at the specified index
     public E get(int index) {
         checkIndex(index);
         return data[index];
+    }
+
+
+    // returns the index of the first occurrence of the value specified
+    public int indexOf(E item) {
+        for (int i = 0; i < size; i++) {
+            if (data[i].equals(item)) {
+                return i;
+            }
+        }
+        return -1;      //NOT FOUND
     }
 
 
@@ -135,30 +149,26 @@ public class ArrayList <E> {
         return size == 0;
     }
 
-
-    //returns the index of the first occurrence of the value specified
-    public int indexOf(E item) {
+    //searches for specified item in list
+    public boolean remove(E item){
         for (int i = 0; i < size; i++) {
-            if (data[i] == item) {
-                return i;
+            if (data[i].equals(item)) {
+                remove(i);          // removes first occurrence
+                return true;        // returns true if found and removed
             }
         }
-        return -1;      //NOT FOUND
-    }
-
-
-    public boolean remove(E item){
-
-        return false;
+        return false;       //NOT FOUND
     }
 
 
     //removes the value at the specified index
     public E remove(int index) {
+        checkIndex(index);              //checks to see if index exists
        E removedItem = data[index];
        for (int i = index; i < size -1; i++){
            data[i] = data[i+1];
        }
+       data[size - 1] = null;
        size--;
        return removedItem;
     }
@@ -167,8 +177,9 @@ public class ArrayList <E> {
     //replaces value at index with the given value
     public E set(int index, E item){
         checkIndex(index);
+        E oldItem = data[index];
         data[index] = item;
-        return item;
+        return oldItem;
     }
 
     //returns the current number of elements in the list
