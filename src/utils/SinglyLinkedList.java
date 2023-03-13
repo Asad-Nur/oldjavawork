@@ -18,6 +18,16 @@ public class SinglyLinkedList<T> {
         return size ==(oldSize + 1);
     }
 
+    public void add(int index, T item) {
+        // check support for front, mid, back
+        if (index == size) {
+            append(item);       //appends if the index prompted is same as list size
+        } else{
+            checkIndex(index);
+            insertBefore(index, item);
+        }
+        size++;
+    }
 
     // add items to the back of the SLL
     private void  append(T item){
@@ -30,6 +40,48 @@ public class SinglyLinkedList<T> {
             currentLast.next    = newNode;              // attach new node to the back
     }
 
+    private void checkIndex(int index){
+        String message = "Invalid Index";
+
+        if (index < 0 || index >= size){
+            throw new IndexOutOfBoundsException(message);
+        }
+    }
+    private T detach(int index){
+        Node<T> target;
+
+        if(index == 0){
+            target = first;             //stores the first nodes address (only for universal readability)
+            first = first.next;         //reassigns first node in list
+
+        } else{
+
+            Node<T> nodeBefore = node(index - 1);   //returning address of node before
+
+            target = nodeBefore.next;           //current target node comes after the node before
+            nodeBefore.next = target.next;      //this reassignment updates order of the list
+
+            target.next = null;                 //detaches the node from the list
+        }
+
+        return target.data;
+    }
+
+    private void insertBefore(int index, T item){
+        if(index == 0){
+            first = new Node<>(item, first);
+        }else {
+            Node<T> nodeBefore = node(index - 1);
+            Node<T> target     = nodeBefore.next;
+            nodeBefore.next    = new Node<>(item, target);
+        }
+    }
+
+    public T get(int index){
+        checkIndex(index);
+        Node <T> target = node(index);
+        return target.data;
+    }
 
     public boolean isEmpty(){
         return first == null && size == 0;
@@ -46,6 +98,21 @@ public class SinglyLinkedList<T> {
         return current;
     }
 
+    public T remove(int index){
+        checkIndex(index);
+        T oldItem = detach(index);
+        size--;     //reduces size by one after detaching
+
+        return oldItem;
+    }
+
+    public T set(int index, T item){
+        checkIndex(index);
+        Node<T> target = node(index);           //find and store address of target node
+        T oldItem = target.data;                //store old item from node
+        target.data = item;                     //update item in node
+        return oldItem;
+    }
     public int size(){
         return size;
     }
