@@ -11,10 +11,11 @@ public class SinglyLinkedList<T> {
     }
 
     public boolean add(T item){
+        int oldSize = size;
         append(item);    // operation to append to back
         size++;          // update counter with added node
 
-        return true;
+        return size ==(oldSize + 1);
     }
 
 

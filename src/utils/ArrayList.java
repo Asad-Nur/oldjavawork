@@ -1,10 +1,8 @@
 package utils;
 
-import week08$iterators.ArrayListIterator;
 /*****************************************************************
  * This class ArrayList implements a contiguous block of data
  * using an array.
- *
  * TODO : Please Complete the Following
  *        1. Comment all steps in your methods used for its
  *           implementation. Be clear and precise.
@@ -71,7 +69,7 @@ public class ArrayList <E> {
         int oldSize = size;
         ensureCapacity(size + other.size);
         for (int i = 0; i < other.size; i++) {
-            add((E) other.data[i]);
+            add(other.data[i]);
         }
         return size == (oldSize + other.size);
     }
@@ -131,6 +129,13 @@ public class ArrayList <E> {
     }
 
 
+    // returns true if list has no occupied items
+    public boolean isEmpty(){
+
+        return size == 0;
+    }
+
+
     //returns the index of the first occurrence of the value specified
     public int indexOf(E item) {
         for (int i = 0; i < size; i++) {
@@ -143,6 +148,7 @@ public class ArrayList <E> {
 
 
     public boolean remove(E item){
+
         return false;
     }
 
@@ -158,13 +164,6 @@ public class ArrayList <E> {
     }
 
 
-    // returns true if list has no occupied items
-    public boolean isEmpty(){
-        return size == 0;
-    }
-
-
-
     //replaces value at index with the given value
     public E set(int index, E item){
         checkIndex(index);
@@ -174,6 +173,7 @@ public class ArrayList <E> {
 
     //returns the current number of elements in the list
     public int size(){
+
         return size;
     }
 
