@@ -112,6 +112,7 @@ public class SinglyLinkedList<T> {
         return oldItem;
     }
     public int size(){
+
         return size;
     }
 
