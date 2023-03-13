@@ -56,8 +56,8 @@ public class ArrayList <E> {
 
         ensureCapacity(size + 1);
 
-        for (int i = size-1; i >= index; i--) {
-            data[i + 1] = data[i];
+        for (int i = size; i > index; i--) {
+            data[i] = data[i - 1];
         }
         data[index] = item;
         size++;
