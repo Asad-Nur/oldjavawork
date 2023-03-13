@@ -15,7 +15,7 @@ public class SinglyLinkedList<T> {
         append(item);    // operation to append to back
         size++;          // update counter with added node
 
-        return size ==(oldSize + 1);
+        return size == (oldSize + 1);
     }
 
     public void add(int index, T item) {
@@ -30,7 +30,7 @@ public class SinglyLinkedList<T> {
     }
 
     // add items to the back of the SLL
-    private void  append(T item){
+    private void append(T item){
         Node<T> currentLast = node(size - 1);   // find the last location
         Node<T> newNode     = new Node<>(item);       // made new node with item to append
 
