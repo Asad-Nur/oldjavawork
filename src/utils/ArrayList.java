@@ -26,6 +26,7 @@ public class ArrayList <E> {
         this(DEFAULT_CAPACITY);
     }
 
+    @SuppressWarnings("unchecked")
     public ArrayList(int capacity) {
         data = (E[]) new Object[capacity];
         size = 0;
@@ -141,6 +142,9 @@ public class ArrayList <E> {
     }
 
 
+    public boolean remove(E item){
+        return false;
+    }
 
 
     //removes the value at the specified index
@@ -158,6 +162,7 @@ public class ArrayList <E> {
     public boolean isEmpty(){
         return size == 0;
     }
+
 
 
     //replaces value at index with the given value
