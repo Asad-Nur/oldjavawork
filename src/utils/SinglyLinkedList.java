@@ -56,12 +56,10 @@ public class SinglyLinkedList<T> {
 
         } else{
 
-            Node<T> nodeBefore = node(index - 1);   //returning address of node before
-
-            target = nodeBefore.next;           //current target node comes after the node before
-            nodeBefore.next = target.next;      //this reassignment updates order of the list
-
-            target.next = null;                 //detaches the node from the list
+            Node<T> nodeBefore  = node(index - 1);   //returning address of node before
+            target              = nodeBefore.next;           //current target node comes after the node before
+            nodeBefore.next     = target.next;      //this reassignment updates order of the list
+            target.next         = null;                 //detaches the node from the list
         }
 
         return target.data;

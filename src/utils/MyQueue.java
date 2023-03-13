@@ -12,7 +12,27 @@ package utils;
  *        3. Use JavaDoc Comments above each method.
  *****************************************************************/
 
-public class MyQueue {
+public class MyQueue<E> {
 
+    Node<E> first;
+    Node<E> last;
     //TODO : Complete Body with Data Fields, Methods and Classes
+    private static class Node<E>{
+        E data;             // data storage
+        Node<E> next;       // self-reference
+
+        public Node(E data){
+
+            this(data, null);
+        }
+
+        private Node(E data, Node<E> next){
+            this.data = data;
+            this.next = next;
+        }
+
+    }
+
+
 }
+
