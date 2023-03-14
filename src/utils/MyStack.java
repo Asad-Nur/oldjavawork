@@ -17,13 +17,13 @@ import java.util.NoSuchElementException;
 public class MyStack <E> {
 
 
-    private Node<E> last;        // stores element at the top of the stack
+    private Node<E> first;        // stores element at the top of the stack
     private int size;            // stores stack size
 
     //TODO : Complete Body with Data Fields, Methods and Classes
 
     public MyStack(){
-        last = null;
+        first = null;
         size = 0;
     }
 
@@ -43,8 +43,8 @@ public class MyStack <E> {
 
 
     private E detach(){
-        E data = last.data;
-        last = last.next;
+        E data = first.data;
+        first = first.next;
         size--;
         return data;
     }
@@ -53,15 +53,15 @@ public class MyStack <E> {
     // "peeks" at stack by returning top element without removing
     public E peek(){
         checkStack();
-        return last.data;      //returns element at the top of stack
+        return first.data;      //returns element at the top of stack
     }
 
 
     // "pops" aka removes top element and returns
     public E pop(){
         checkStack();
-        E data = last.data;      // stores the element at the top of stack
-        last = last.next;         // reassigns next element in stack to top
+        E data = first.data;      // stores the element at the top of stack
+        first = first.next;         // reassigns next element in stack to top
         size--;
         return data;            // returns the element at the top of the stack
     }
@@ -70,8 +70,8 @@ public class MyStack <E> {
     // pushes an element to top of stack
     public E push(E item){
         //don't need to check stack because you are pushing an element
-        Node<E> newNode = new Node<>(item, last);
-        last = newNode;      //assigns the top element to newNode
+        Node<E> newNode = new Node<>(item, first);
+        first = newNode;      //assigns the top element to newNode
         size++;
         return item;
     }
@@ -88,9 +88,9 @@ public class MyStack <E> {
         if(isEmpty()){
             return "[]";
         }else{
-            StringBuilder result = new StringBuilder("[");
+            StringBuilder result = new StringBuilder("[" + first.data);
 
-            for (MyStack.Node<E> node = last.next; node != null; node = node.next){
+            for (Node<E> node = first.next; node != null; node = node.next){
                 result.append(", ").append(node.data);
             }
 
