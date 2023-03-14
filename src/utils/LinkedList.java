@@ -12,7 +12,7 @@ package utils;
  *        3. Use JavaDoc Comments above each method.
  *****************************************************************/
 
-public class  implement List<E> {
+public class LinkedList<E> {
 
     //TODO : Complete Body with Data Fields, Methods and Classes
     Node<E> first; //reference to first node in list

@@ -11,7 +11,7 @@ package utils;
  *        3. Use JavaDoc Comments above each method.
  *****************************************************************/
 
-public class ArrayList <E> {
+public class ArrayList <E> implements List<E> {
 
     //constants
     public static final int DEFAULT_CAPACITY = 10;
