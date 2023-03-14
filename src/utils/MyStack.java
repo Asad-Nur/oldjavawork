@@ -17,7 +17,7 @@ import java.util.NoSuchElementException;
 public class MyStack <E> {
 
 
-    private Node<E> first;        // stores element at the bottom of the stack
+
 
     private Node<E> last;        // stores element at the top of the stack
     private int size;
