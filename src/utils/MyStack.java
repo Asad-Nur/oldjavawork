@@ -75,8 +75,9 @@ public class MyStack <E> {
 
     // checks the amount of elements int the stack
     public int size(){
-        return size;        // returns size of stack (number of elements)
+        return size;            // returns size of stack (number of elements)
     }
+
 
 
     public String toString(){
