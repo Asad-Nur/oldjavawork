@@ -186,6 +186,19 @@ public class ArrayList <E> {
         return oldItem;             //return the replaced item
     }
 
+    private void shiftLeft(int index){
+        for (int i = index; i < size - 1; i++) {
+           data[i] = data[i + 1];
+        }
+    }
+
+
+    private void shiftRight(int index){
+        return;
+    }
+
+
+
     //returns the current number of elements in the list
     public int size(){
 
