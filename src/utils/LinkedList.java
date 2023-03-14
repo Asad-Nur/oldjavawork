@@ -12,7 +12,7 @@ package utils;
  *        3. Use JavaDoc Comments above each method.
  *****************************************************************/
 
-public class LinkedList<E> implements List<E> {
+public class LinkedList<E>  {
 
     //TODO : Complete Body with Data Fields, Methods and Classes
     Node<E> first; //reference to first node in list
@@ -40,6 +40,24 @@ public class LinkedList<E> implements List<E> {
         return first == null && size == 0;
     }
 
+    //**********************************************************************************
+    public class LinkedIterator implements Iterator<E>{
+
+        @Override
+        public boolean hasNext() {
+            return false;
+        }
+
+        @Override
+        public E next() {
+            return null;
+        }
+
+        @Override
+        public void remove() {
+
+        }
+    }
 
     // This is an inner class that is decoupled from outer class.
     // The purpose is primarily for storage of data, prev and next
