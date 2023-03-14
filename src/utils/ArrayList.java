@@ -149,6 +149,20 @@ public class ArrayList <E> {
         return size == 0;
     }
 
+
+    //removes the value at the specified index
+    public E remove(int index) {
+        checkIndex(index);              //checks to see if index exists
+        E removedItem = data[index];
+        for (int i = index; i < size -1; i++){
+            data[i] = data[i+1];
+        }
+        data[size - 1] = null;
+        size--;
+        return removedItem;
+    }
+
+
     //searches for specified item in list
     public boolean remove(E item){
         for (int i = 0; i < size; i++) {
@@ -158,19 +172,6 @@ public class ArrayList <E> {
             }
         }
         return false;       //NOT FOUND
-    }
-
-
-    //removes the value at the specified index
-    public E remove(int index) {
-        checkIndex(index);              //checks to see if index exists
-       E removedItem = data[index];
-       for (int i = index; i < size -1; i++){
-           data[i] = data[i+1];
-       }
-       data[size - 1] = null;
-       size--;
-       return removedItem;
     }
 
 
