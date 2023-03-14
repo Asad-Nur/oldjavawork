@@ -55,10 +55,8 @@ public class ArrayList <E> {
         }
 
         ensureCapacity(size + 1);
+        shiftRight(index);
 
-        for (int i = size; i > index; i--) {
-            data[i] = data[i - 1];
-        }
         data[index] = item;
         size++;
     }
@@ -194,7 +192,9 @@ public class ArrayList <E> {
 
 
     private void shiftRight(int index){
-        return;
+        for (int i = size; i > index; i--){
+            data[i] = data[i-1];
+        }
     }
 
 
