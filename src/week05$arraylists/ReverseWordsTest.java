@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.List;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class ReverseWordsTest {
 
@@ -40,6 +41,11 @@ public class ReverseWordsTest {
             // Split the line into individual words
             String[] words = line.split(" ");
 
+            List<String> wordList = new ArrayList<>();
+            for (String word : words) {
+                wordList.add(word);
+            }
+
             // Use a StringBuilder to construct a new string with the words in reverse order
             StringBuilder sb = new StringBuilder();
             for(int i=words.length-1; i>=0; i--){
@@ -54,6 +60,13 @@ public class ReverseWordsTest {
         }
 
         scanner.close();
+
+        int size = list.size();
+        for (int i = 0; i < size / 2; i++) {
+            String temp = list.get(i);
+            list.set(i, list.get(size - i - 1));
+            list.set(size - i - 1, temp);
+        }
     }
 
 
@@ -61,19 +74,27 @@ public class ReverseWordsTest {
         //TODO : WRITE TO OUTPUT FILE LOCATION
         PrintStream writer  = new PrintStream(outputLocation);
 
+        for(String line: list){
+            writer.println(line);
+        }
+
         writer.close();
     }
 
 
     public static void main(String[] args) throws FileNotFoundException{
-        String inputLocation    = "." + File.separator + "data"
-                + File.separator + "words.txt";
+        String inputLocation    = "C:\\Users\\assad\\IdeaProjects\\my-work-Asad-Nur\\data\\words.txt";
 
-        String outputLocation   = "." + File.separator + "results"
-                + File.separator + "reverse_words.txt";
+        String outputLocation   = "C:\\Users\\assad\\IdeaProjects\\my-work-Asad-Nur\\results\\reverse_words.txt";
 
         //TODO: update program to use an Array List
         //TODO: process items in file
 
+        List<String> lines = new ArrayList<>();
+        read(inputLocation, lines);
+        write(outputLocation, lines);
+        System.out.println("Output written to " + outputLocation);
+
     }
 }
+
