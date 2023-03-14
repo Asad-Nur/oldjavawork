@@ -62,20 +62,6 @@ public class ArrayList <E> {
     }
 
 
-    // appends another list to current list
-    public boolean addAll(ArrayList<E> other) {
-        if (other == null) {
-            return false;
-        }
-        int oldSize = size;
-        ensureCapacity(size + other.size);
-        for (int i = 0; i < other.size; i++) {
-            add(other.data[i]);
-        }
-        return size == (oldSize + other.size);
-    }
-
-
     // checks if current index is valid
     private void checkIndex(int index) {
         if (index < 0 || index >= size) {       // checks to see if in bound/exists
