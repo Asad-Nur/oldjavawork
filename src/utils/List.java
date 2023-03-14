@@ -1,7 +1,7 @@
 package utils;
 
 public interface List<E> {
-    boolean add(E element);
+    boolean     add(E element);
 
     void        add(int index, E element);
 
