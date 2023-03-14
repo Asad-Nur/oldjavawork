@@ -156,13 +156,11 @@ public class ArrayList <E> {
     //removes the value at the specified index
     public E remove(int index) {
         checkIndex(index);              //checks to see if index exists
-        E removedItem = data[index];
-        for (int i = index; i < size -1; i++){
-            data[i] = data[i+1];
-        }
+        E oldItem = data[index];
+        shiftLeft(index);
         data[size - 1] = null;
         size--;
-        return removedItem;
+        return oldItem;
     }
 
 
