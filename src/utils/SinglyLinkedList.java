@@ -65,6 +65,13 @@ public class SinglyLinkedList<T> {
         return target.data;
     }
 
+
+    public T get(int index){
+        checkIndex(index);
+        Node <T> target = node(index);
+        return target.data;
+    }
+
     private void insertBefore(int index, T item){
         if(index == 0){
             first = new Node<>(item, first);
@@ -75,11 +82,6 @@ public class SinglyLinkedList<T> {
         }
     }
 
-    public T get(int index){
-        checkIndex(index);
-        Node <T> target = node(index);
-        return target.data;
-    }
 
     public boolean isEmpty(){
 
