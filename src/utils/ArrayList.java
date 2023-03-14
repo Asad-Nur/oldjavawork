@@ -155,9 +155,9 @@ public class ArrayList <E> {
 
     //removes the value at the specified index
     public E remove(int index) {
-        checkIndex(index);              //checks to see if index exists
+        checkIndex(index);              // checks index to make sure it is valid
         E oldItem = data[index];
-        shiftLeft(index);
+        shiftLeft(index);               // shifts item down by 1
         data[size - 1] = null;
         size--;
         return oldItem;
@@ -184,6 +184,8 @@ public class ArrayList <E> {
         return oldItem;             //return the replaced item
     }
 
+
+    // private helper method to shift down by 1
     private void shiftLeft(int index){
         for (int i = index; i < size - 1; i++) {
            data[i] = data[i + 1];
