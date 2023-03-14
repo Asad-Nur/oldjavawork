@@ -3,7 +3,7 @@ package utils;
 /*****************************************************************
  * This class LinkedList implements linked data structures using
  * a Doubly Linked List (DLL).
- *
+
  * TODO : Please Complete the Following
  *        1. Comment all steps in your methods used for its
  *           implementation. Be clear and precise.
@@ -12,7 +12,7 @@ package utils;
  *        3. Use JavaDoc Comments above each method.
  *****************************************************************/
 
-public class LinkedList<E>{
+public class  implement List<E> {
 
     //TODO : Complete Body with Data Fields, Methods and Classes
     Node<E> first; //reference to first node in list
@@ -22,6 +22,22 @@ public class LinkedList<E>{
         first   = null;
         last    = null;
         size    = 0;
+    }
+
+
+
+    private void checkIndex(int index) {
+        String message = "Invalid Index";
+
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException(message);
+        }
+    }
+
+
+    public boolean isEmpty(){
+
+        return first == null && size == 0;
     }
 
 
