@@ -17,14 +17,15 @@ import java.util.NoSuchElementException;
 public class MyStack <E> {
 
 
-
-
     private Node<E> last;        // stores element at the top of the stack
-    private int size;
+    private int size;            // stores stack size
 
     //TODO : Complete Body with Data Fields, Methods and Classes
 
-
+    public MyStack(){
+        last = null;
+        size = 0;
+    }
 
     //helper method similar to check index but for stack
     private void checkStack(){
@@ -36,8 +37,9 @@ public class MyStack <E> {
 
     // checks if stack is empty
     public boolean isEmpty(){
-        return size == 0;
-    }
+
+        return size == 0;       // returns true if stack has 0 elements
+    }                           // false if not
 
 
     private E detach(){
@@ -75,9 +77,10 @@ public class MyStack <E> {
     }
 
 
-    // returns size of stack (number of elements)
+    // checks the amount of elements int the stack
     public int size(){
-        return size;
+
+        return size;        // returns size of stack (number of elements)
     }
 
 
