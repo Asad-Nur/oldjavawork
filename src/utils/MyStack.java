@@ -5,7 +5,6 @@ import java.util.NoSuchElementException;
 /*****************************************************************
  * This class MyStack implements a LIFO data structure using a
  * Singly Linked List (SLL).
- *
  * TODO : Please Complete the Following
  *        1. Comment all steps in your methods used for its
  *           implementation. Be clear and precise.
@@ -42,6 +41,7 @@ public class MyStack <E> {
     }                           // false if not
 
 
+    // helper method for removing item in "pop"
     private E detach(){
         E data = first.data;
         first = first.next;
@@ -60,18 +60,14 @@ public class MyStack <E> {
     // "pops" aka removes top element and returns
     public E pop(){
         checkStack();
-        E data = first.data;      // stores the element at the top of stack
-        first = first.next;         // reassigns next element in stack to top
-        size--;
-        return data;            // returns the element at the top of the stack
+        return detach();            // returns the element at the top of the stack
     }
 
 
     // pushes an element to top of stack
     public E push(E item){
         //don't need to check stack because you are pushing an element
-        Node<E> newNode = new Node<>(item, first);
-        first = newNode;      //assigns the top element to newNode
+        first = new Node<>(item, first);      //assigns the top element to newNode
         size++;
         return item;
     }
@@ -79,7 +75,6 @@ public class MyStack <E> {
 
     // checks the amount of elements int the stack
     public int size(){
-
         return size;        // returns size of stack (number of elements)
     }
 
