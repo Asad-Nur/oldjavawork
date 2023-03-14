@@ -180,10 +180,10 @@ public class ArrayList <E> {
 
     //replaces value at index with the given value
     public E set(int index, E item){
-        checkIndex(index);
-        E oldItem = data[index];
-        data[index] = item;
-        return oldItem;
+        checkIndex(index);          // check to make sure index is valid
+        E oldItem = data[index];    //store current item at location in temp
+        data[index] = item;         //update index location with new item
+        return oldItem;             //return the replaced item
     }
 
     //returns the current number of elements in the list
