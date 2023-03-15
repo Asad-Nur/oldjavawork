@@ -46,16 +46,36 @@ public class ArrayListTest {
         java.util.ArrayList<String> list = new java.util.ArrayList<String>();
         list.add("Tom");
         list.add("Ben");
+        System.out.println(list.size());
+        System.out.println(list);
+        list.clear();
+        System.out.println(list.size());
+        System.out.println(list);
         list.add("Sam");
         list.add("John");
         list.add("Tim");
+        System.out.println(list.size());
+        System.out.println(list);
+        list.remove(1);
+        list. add(1, "Jerry");
+        System.out.println(list.size());
+        System.out.println(list);
+        list.contains("Jerry");
+        System.out.println(list.size());
+        System.out.println(list);
+        list.get(0);
+        System.out.println(list.size());
+        System.out.println(list);
+        list.indexOf("Tim");
+        System.out.println(list.size());
+        System.out.println(list);
+        list.remove("Tim");
         System.out.println(list.size());
         System.out.println(list);
     }
 
     public static void main(String[] args) {
         intro();
-        libraryVersionTest();
         myVersionTest();
     }
 }
