@@ -44,10 +44,10 @@ public class MyStack <E> {
 
     // helper method for removing item in "pop"
     private E detach(){
-        E data = first.data;
+        E item = first.data;
         first = first.next;
         size--;
-        return data;
+        return item;
     }
 
 
