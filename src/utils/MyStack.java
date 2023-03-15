@@ -1,5 +1,6 @@
 package utils;
 
+import java.util.EmptyStackException;
 import java.util.NoSuchElementException;
 
 /*****************************************************************
@@ -29,7 +30,7 @@ public class MyStack <E> {
     //helper method similar to check index but for stack
     private void checkStack(){
         if (isEmpty()){
-            throw new NoSuchElementException("Stack is empty");     //throws exception if stack is empty
+            throw new EmptyStackException();     //throws exception if stack is empty
         }
     }
 
