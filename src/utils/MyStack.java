@@ -38,7 +38,7 @@ public class MyStack <E> {
     // checks if stack is empty
     public boolean isEmpty(){
 
-        return size == 0;       // returns true if stack has 0 elements
+        return first == null && size == 0;       // returns true if stack has 0 elements
     }                           // false if not
 
 
