@@ -21,7 +21,7 @@ public class MyQueue<E> {
     Node<E> first;          //stores first element
     Node<E> last;           // stores last element
 
-    private int size;
+    private int size;       // stores stack size
 
     public MyQueue(){
         first = null;
@@ -31,33 +31,34 @@ public class MyQueue<E> {
     //TODO : Complete Body with Data Fields, Methods and Classes
 
     public boolean add(E item){
-        append(item);
+        append(item);       //calls on append method to add to end of queue
         return true;
     }
 
 
     private void append(E item){
-        Node<E> newNode = new Node<>(item, null);
+        Node<E> newNode = new Node<>(item, null);   // declares Node newNode
         if(last == null){
-            first = last = newNode;
+            first = last = newNode;     // if list is empty both pointers will point to the appended node
         }else{
-            last.next = newNode;
-            last = newNode;
+            last.next = newNode;        // if not empty item is appended after the current last element
+            last = newNode;             // last pointer is now on the newNode
         }
-        size++;
+        size++;         // increase queue size
     }
 
 
     private E detach(){
-        E item = first.data;
-        first = first.next;
-        size--;
-        return item;
+        E item = first.data;        // E stores data from top of stack
+        first = first.next;         // element at top of stack is switched to the item next up
+        size--;                     // reduce stack size by one since we are removing an element
+        return item;                // return the element at the top of the stack
     }
 
 
     public boolean isEmpty(){
         return size == 0;
+        // returns false if it isn't empty and true if it is
     }
 
 
@@ -65,20 +66,21 @@ public class MyQueue<E> {
         if(isEmpty()){
             return null;
         }
-        return first.data;
+        return first.data;      // returns front item if queue isn't empty
     }
 
 
     public E remove(){
         if(isEmpty()){
-            throw new NoSuchElementException();
+            throw new NoSuchElementException();         // throws exception if queue is empty
         }
-        return detach();
+        return detach();        // calls on helper method detach to remove item from front of queue
     }
 
 
     public int size(){
         return size;
+
     }
 
 
