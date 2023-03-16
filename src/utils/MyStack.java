@@ -1,7 +1,6 @@
 package utils;
 
 import java.util.EmptyStackException;
-import java.util.NoSuchElementException;
 
 /*****************************************************************
  * This class MyStack implements a LIFO data structure using a
@@ -54,7 +53,7 @@ public class MyStack <E> {
     // "peeks" at stack by returning top element without removing
     public E peek(){
         checkStack();
-        return first.data;      //returns element at the top of stack
+        return first.data;      // returns element at the top of stack
     }
 
 
@@ -68,7 +67,7 @@ public class MyStack <E> {
     // pushes an element to top of stack
     public E push(E item){
         //don't need to check stack because you are pushing an element
-        first = new Node<>(item, first);      //assigns the top element to newNode
+        first = new Node<>(item, first);      // assigns the top element to newNode
         size++;
         return item;
     }
