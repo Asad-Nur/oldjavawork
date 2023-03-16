@@ -80,30 +80,31 @@ public class MyStack <E> {
     // checks the amount of elements int the stack
     public int size(){
         return size;            // returns size of stack (number of elements)
+
     }
 
 
 
     public String toString(){
         if(isEmpty()){
-            return "[]";
+            return "[]";        //returns empty string if stack is empty
         } else {
             StringBuilder result = new StringBuilder("[");
-            ArrayList<E> elements = new ArrayList<E>();
+            ArrayList<E> elements = new ArrayList<E>();     // Stores element from bottom to top using an Arraylist
 
             for (Node<E> node = first; node != null; node = node.next){
-                elements.add(node.data);
+                elements.add(node.data);        // loops through stack and adds the node data to ArrayList
             }
 
-            for (int i = elements.size() - 1; i >= 0; i--){
-                result.append(elements.get(i));
+            for (int i = elements.size() - 1; i >= 0; i--){         // loops through list in reverse
+                result.append(elements.get(i));                     //  appends to stringBuilder
                 if (i != 0) {
-                    result.append(", ");
+                    result.append(", ");    // adds comma and space after all except last
                 }
             }
 
             result.append("]");
-            return result.toString();
+            return result.toString();       // returns the string representation
         }
     }
 
