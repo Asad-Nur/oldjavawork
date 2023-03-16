@@ -19,7 +19,6 @@ public class MyStack <E> {
     private Node<E> first;        // stores element at the top of the stack
     private int size;            // stores stack size
 
-    //ArrayList<String> stack;    // declare stack
 
     //TODO : Complete Body with Data Fields, Methods and Classes
 
@@ -27,10 +26,9 @@ public class MyStack <E> {
     public MyStack(){
         first = null;
         size = 0;
-        //stack = new ArrayList<String>();
     }
 
-    //helper method similar to check index but for stack
+    //helper method similar to check stack
     private void checkStack(){
         if (isEmpty()){
             throw new EmptyStackException();     //throws exception if stack is empty
@@ -47,10 +45,10 @@ public class MyStack <E> {
 
     // helper method for removing item in "pop"
     private E detach(){
-        E item = first.data;
-        first = first.next;
-        size--;
-        return item;
+        E item = first.data;        // E stores data from top of stack
+        first = first.next;         // element at top of stack is switched to the item next up
+        size--;                     // reduce stack size by one since we are removing an element
+        return item;                // return the element at the top of the stack
     }
 
 
