@@ -31,10 +31,12 @@ public class LinkedList<E> implements List<E> {
         return false;
     }
 
+
     @Override
     public void add(int index, E element) {
 
     }
+
 
     private void checkIndex(int index) {
         String message = "Invalid Index";
@@ -44,49 +46,58 @@ public class LinkedList<E> implements List<E> {
         }
     }
 
+
     @Override
     public void clear() {
 
     }
+
 
     @Override
     public boolean contains(E element) {
         return false;
     }
 
+
     @Override
     public E get(int index) {
         return null;
     }
+
 
     @Override
     public int indexOf(E element) {
         return 0;
     }
 
+
     public boolean isEmpty(){
 
         return first == null && size == 0;
     }
+
 
     @Override
     public E remove(int index) {
         return null;
     }
 
+
     @Override
     public boolean remove(E element) {
         return false;
     }
+
 
     @Override
     public E set(int index, E element) {
         return null;
     }
 
+
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     //**********************************************************************************

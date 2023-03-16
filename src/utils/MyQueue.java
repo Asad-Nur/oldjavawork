@@ -1,7 +1,7 @@
 package utils;
 
 
-import java.util.EmptyStackException;
+
 import java.util.NoSuchElementException;
 
 /*****************************************************************
@@ -18,8 +18,8 @@ import java.util.NoSuchElementException;
 
 public class MyQueue<E> {
 
-    Node<E> first;
-    Node<E> last;
+    Node<E> first;          //stores first element
+    Node<E> last;           // stores last element
 
     private int size;
 
