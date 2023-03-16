@@ -16,7 +16,7 @@ import java.util.EmptyStackException;
 public class MyStack <E> {
 
 
-    private Node<E> first;        // stores element at the top of the stack
+    private Node<E> last;        // stores element at the top of the stack
     private int size;            // stores stack size
 
 
@@ -24,7 +24,7 @@ public class MyStack <E> {
 
     // constructor to initialize data fields
     public MyStack(){
-        first = null;
+        last = null;
         size = 0;
     }
 
@@ -39,14 +39,14 @@ public class MyStack <E> {
     // checks if stack is empty
     public boolean isEmpty(){
 
-        return first == null && size == 0;       // returns true if stack has 0 elements
+        return last == null && size == 0;       // returns true if stack has 0 elements
     }                           // false if not
 
 
     // helper method for removing item in "pop"
     private E detach(){
-        E item = first.data;        // E stores data from top of stack
-        first = first.next;         // element at top of stack is switched to the item next up
+        E item = last.data;        // E stores data from top of stack
+        last = last.next;         // element at top of stack is switched to the item next up
         size--;                     // reduce stack size by one since we are removing an element
         return item;                // return the element at the top of the stack
     }
@@ -55,7 +55,7 @@ public class MyStack <E> {
     // "peeks" at stack by returning top element without removing
     public E peek(){
         checkStack();
-        return first.data;      // returns element at the top of stack
+        return last.data;      // returns element at the top of stack
     }
 
 
@@ -69,7 +69,7 @@ public class MyStack <E> {
     // pushes an element to top of stack
     public E push(E item){
         //don't need to check stack because you are pushing an element
-        first = new Node<>(item, first);      // assigns the top element to newNode
+        last = new Node<>(item, last);      // assigns the top element to newNode
         size++;
         return item;
     }
@@ -90,7 +90,7 @@ public class MyStack <E> {
             StringBuilder result = new StringBuilder("[");
             ArrayList<E> elements = new ArrayList<E>();     // Stores element from bottom to top using an Arraylist
 
-            for (Node<E> node = first; node != null; node = node.next){
+            for (Node<E> node = last; node != null; node = node.next){
                 elements.add(node.data);        // loops through stack and adds the node data to ArrayList
             }
 
