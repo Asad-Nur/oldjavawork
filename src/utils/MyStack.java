@@ -19,11 +19,15 @@ public class MyStack <E> {
     private Node<E> first;        // stores element at the top of the stack
     private int size;            // stores stack size
 
+    //ArrayList<String> stack;    // declare stack
+
     //TODO : Complete Body with Data Fields, Methods and Classes
 
+    // constructor to initialize data fields
     public MyStack(){
         first = null;
         size = 0;
+        //stack = new ArrayList<String>();
     }
 
     //helper method similar to check index but for stack
