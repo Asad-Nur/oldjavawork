@@ -1,5 +1,5 @@
 package utils;
-
+import java.util.ArrayList;
 import java.util.EmptyStackException;
 
 /*****************************************************************
@@ -87,16 +87,24 @@ public class MyStack <E> {
     public String toString(){
         if(isEmpty()){
             return "[]";
-        }else{
-            StringBuilder result = new StringBuilder("[" + first.data);
+        } else {
+            StringBuilder result = new StringBuilder("[");
+            ArrayList<E> elements = new ArrayList<E>();
 
-            for (Node<E> node = first.next; node != null; node = node.next){
-                result.append(", ").append(node.data);
+            for (Node<E> node = first; node != null; node = node.next){
+                elements.add(node.data);
             }
 
-            return result + "]";
-        }
+            for (int i = elements.size() - 1; i >= 0; i--){
+                result.append(elements.get(i));
+                if (i != 0) {
+                    result.append(", ");
+                }
+            }
 
+            result.append("]");
+            return result.toString();
+        }
     }
 
 
