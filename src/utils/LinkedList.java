@@ -27,14 +27,29 @@ public class LinkedList<E> implements List<E> {
 
 
     @Override
-    public boolean add(E element) {
-        return false;
+    public boolean add(E item) {
+        int oldSize = size;
+        append(item);
+        size++;
+
+        return size == (oldSize + 1);
     }
 
 
     @Override
-    public void add(int index, E element) {
+    public void add(int index, E item) {
 
+    }
+
+    private void append(E item){
+        Node<E> currentLast = last;
+        Node<E> newNode = new Node<>(null,item);
+        last = newNode;
+        if (isEmpty()) {
+            first = newNode;
+        }else{
+            currentLast.next = newNode;
+        }
     }
 
 
@@ -73,7 +88,7 @@ public class LinkedList<E> implements List<E> {
 
     public boolean isEmpty(){
 
-        return first == null && size == 0;
+        return first == null && last == null && size == 0;
     }
 
 
