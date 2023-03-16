@@ -63,7 +63,7 @@ public class MyQueue<E> {
 
     public E peek(){
         if(isEmpty()){
-            throw new NoSuchElementException();
+            return null;
         }
         return first.data;
     }
