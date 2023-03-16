@@ -43,8 +43,9 @@ public class LinkedList<E> implements List<E> {
 
     private void append(E item){
         Node<E> currentLast = last;
-        Node<E> newNode = new Node<>(null,item);
-        last = newNode;
+        Node<E> newNode     = new Node<>(last,item);
+        last                = newNode;
+
         if (isEmpty()) {
             first = newNode;
         }else{
