@@ -185,14 +185,14 @@ public class ArrayList <E> implements List<E> {
 
 
 
-    //returns the current number of elements in the list
+    // returns the current number of elements in the list
     public int size(){
 
         return size;
     }
 
 
-    //prints out the values in sequence from 0 to length - 1
+    // prints out the values in sequence from 0 to length - 1
     public String toString(){
         if(isEmpty()){
             return "[]";
