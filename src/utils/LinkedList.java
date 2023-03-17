@@ -15,10 +15,13 @@ package utils;
 public class LinkedList<E> implements List<E> {
 
     //TODO : Complete Body with Data Fields, Methods and Classes
-    Node<E> first; //reference to first node in list
-    Node<E> last; //reference to last node in list
-    int size; //counter of index in list
+    Node<E> first;          //reference to first node in list
+    Node<E> last;           //reference to last node in list
+    int size;               //counter of index in list
+
+
     public LinkedList(){
+        // initializes variables
         first   = null;
         last    = null;
         size    = 0;
@@ -28,33 +31,39 @@ public class LinkedList<E> implements List<E> {
 
     @Override
     public boolean add(E item) {
-        append(item);
-        return true;
+        int oldSize = size;
+        append(item);       //add to end of list
+        size++;             // update counter with added node
+
+        return size == (oldSize + 1);
     }
 
 
     @Override
     public void add(int index, E item) {
-        if(index == size) {
-            append(item);
-        }else {
+        // check support for front, mid, back
+        if (index == size) {
+            append(item);       // appends if the index prompted is same as list size
+        } else{
             checkIndex(index);
-            insertBefore(index,item);
+            insertBefore(index, item);
         }
-    }
-
-    private void append(E item){
-        Node<E> newNode = new Node<>(last, item, null);
-        if (isEmpty()) {
-            first = newNode;
-        } else {
-            last.next = newNode;
-        }
-        last = newNode;
         size++;
     }
 
+    private void append(E item){
+        Node<E> newNode = new Node<>(last, item, null);     // declares Node newNode
+        if (isEmpty()) {
+            first = last = newNode;        // if list is empty both pointers will point to the appended node
+        } else {
+            last.next = newNode;        // if not empty item is appended after the current last element
+        }
+        last = newNode;              // last pointer is now on the newNode
+    }
 
+
+
+    // private helper method to check if index is valid
     private void checkIndex(int index) {
         String message = "Invalid Index";
 
@@ -66,55 +75,122 @@ public class LinkedList<E> implements List<E> {
 
     @Override
     public void clear() {
+        first = null;
+        last = null;
         size = 0;
     }
 
 
     @Override
     public boolean contains(E item) {
-        return false;
+        return indexOf(item) >= 0;      // returns true if item is found
     }
 
+
+    private E detach(int index){
+        Node<E> target;
+
+        if(index == 0){
+            target = first;             //stores the first nodes address (only for universal readability)
+            first = first.next;         //reassigns first node in list
+
+        } else{
+
+            Node<E> nodeBefore  = node(index - 1);   //returning address of node before
+            target              = nodeBefore.next;           //current target node comes after the node before
+            nodeBefore.next     = target.next;      //this reassignment updates order of the list
+            target.next         = null;                 //detaches the node from the list
+        }
+
+        return target.data;
+    }
 
     @Override
     public E get(int index) {
-        return null;
-
+        checkIndex(index);
+        return node(index).data;        // returns the item at the given index
     }
 
 
+    // returns the index of the first occurrence of the value specified
     @Override
     public int indexOf(E item) {
-        return 0;
+        int index = 0;      // initializes starting at the left most index
+        for (Node<E> node = first; node != null; node = node.next) {        // loops through list
+            if (item.equals(node.data)) {       // if the value specified is found
+                return index;   //returns the index of the item
+            }
+            index++;
+        }
+        return -1;
     }
 
 
     private void insertBefore(int index, E item) {
-
+        if (index == 0) {       //if inserting before first item (index 0)
+            Node<E> newNode = new Node<>(null, item, first);        // item's prev pointer goes to null
+            first.prev = newNode;
+            first = newNode;
+        } else {
+            Node<E> nodeBefore = node(index - 1);
+            // if inserting before middle nodes
+            Node<E> newNode = new Node<>(nodeBefore, item, nodeBefore.next);
+            nodeBefore.next = newNode;
+            newNode.next.prev = newNode;
+        }
     }
+
 
 
     public boolean isEmpty(){
 
-        return first == null && last == null && size == 0;
+        return size == 0;       // if the size is 0 returns true
+    }
+
+
+    // private helper class counter for finding the node address at
+    // the index location in DLL
+    private Node<E> node(int index){
+        Node<E> current = first;
+
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return current;
     }
 
 
     @Override
     public E remove(int index) {
-        return null;
+        checkIndex(index);      // checks index to see if its valid
+        E oldItem = detach(index);   // removes index from list
+        size--;
+
+        return oldItem;     // returns removed item
     }
 
 
     @Override
-    public boolean remove(E element) {
-        return false;
+    public boolean remove(E item) {
+        // loops through list searching for item
+        for (Node<E> node = first; node != null; node = node.next) {
+            if (item.equals(node.data)) {
+                detach(indexOf(item));      // if node data is equal to item it is removed
+                size--;
+                return true;        // returns true if found and removed
+            }
+        }
+        return false;       //NOT FOUND
     }
 
 
     @Override
-    public E set(int index, E element) {
-        return null;
+    public E set(int index, E item) {
+        checkIndex(index);
+        Node<E> target = node(index);           //find and store address of target node
+        E oldItem = target.data;                //store old item from node
+        target.data = item;                     //update item in node
+        return oldItem;
     }
 
 
