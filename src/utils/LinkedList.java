@@ -28,29 +28,30 @@ public class LinkedList<E> implements List<E> {
 
     @Override
     public boolean add(E item) {
-        int oldSize = size;
         append(item);
-        size++;
-
-        return size == (oldSize + 1);
+        return true;
     }
 
 
     @Override
     public void add(int index, E item) {
-
+        if(index == size) {
+            append(item);
+        }else {
+            checkIndex(index);
+            insertBefore(index,item);
+        }
     }
 
     private void append(E item){
-        Node<E> currentLast = last;
-        Node<E> newNode     = new Node<>(last,item);
-        last                = newNode;
-
+        Node<E> newNode = new Node<>(last, item, null);
         if (isEmpty()) {
             first = newNode;
-        }else{
-            currentLast.next = newNode;
+        } else {
+            last.next = newNode;
         }
+        last = newNode;
+        size++;
     }
 
 
@@ -65,12 +66,12 @@ public class LinkedList<E> implements List<E> {
 
     @Override
     public void clear() {
-
+        size = 0;
     }
 
 
     @Override
-    public boolean contains(E element) {
+    public boolean contains(E item) {
         return false;
     }
 
@@ -78,12 +79,18 @@ public class LinkedList<E> implements List<E> {
     @Override
     public E get(int index) {
         return null;
+
     }
 
 
     @Override
-    public int indexOf(E element) {
+    public int indexOf(E item) {
         return 0;
+    }
+
+
+    private void insertBefore(int index, E item) {
+
     }
 
 
@@ -114,6 +121,21 @@ public class LinkedList<E> implements List<E> {
     @Override
     public int size() {
         return size;
+    }
+
+    public String toString(){
+        if(isEmpty()){
+            return "[]";
+        }else{
+            StringBuilder result = new StringBuilder("[" + first.data);
+
+            for (Node<E> node = first.next; node != null; node = node.next){
+                result.append(", ").append(node.data);
+            }
+
+            return result + "]";
+        }
+
     }
 
     //**********************************************************************************
