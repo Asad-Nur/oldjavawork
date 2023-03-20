@@ -121,6 +121,7 @@ public class MyStack <E> {
         private Node(E data, Node<E> next){
             this.data = data;
             this.next = next;
+
         }
 
     }
