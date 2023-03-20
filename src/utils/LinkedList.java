@@ -128,15 +128,12 @@ public class LinkedList<E> implements List<E> {
 
     private void insertBefore(int index, E item) {
         if (index == 0) {       //if inserting before first item (index 0)
-            Node<E> newNode = new Node<>(null, item, first);        // item's prev pointer goes to null
-            first.prev = newNode;
-            first = newNode;
+            first = new Node<>(null, item, first);        // item's prev pointer goes to null
+
         } else {
-            Node<E> nodeBefore = node(index - 1);
-            // if inserting before middle nodes
-            Node<E> newNode = new Node<>(nodeBefore, item, nodeBefore.next);
-            nodeBefore.next = newNode;
-            newNode.next.prev = newNode;
+            Node<E> nodeBefore      = node(index - 1);
+            Node<E> target          = nodeBefore.next;
+            nodeBefore.next         = new Node<>(nodeBefore, item, target);
         }
     }
 
