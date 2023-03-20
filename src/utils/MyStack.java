@@ -1,5 +1,4 @@
 package utils;
-import java.util.ArrayList;
 import java.util.EmptyStackException;
 
 /*****************************************************************
@@ -14,7 +13,6 @@ import java.util.EmptyStackException;
  *****************************************************************/
 
 public class MyStack <E> {
-
 
     private Node<E> last;        // stores element at the top of the stack
     private int size;            // stores stack size

@@ -80,7 +80,6 @@ public class MyQueue<E> {
 
     public int size(){
         return size;
-
     }
 
 
@@ -104,7 +103,6 @@ public class MyQueue<E> {
         Node<E> next;       // self-reference
 
         public Node(E data){
-
             this(data, null);
         }
 
