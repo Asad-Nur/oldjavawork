@@ -459,6 +459,8 @@ public class MyStackQueueTest {
 
     public static void main(String[] args) {
         intro();
+        libraryQueueVersionTest();
+        libraryStackVersionTest();
         myQueueVersionTest();
         myStackVersionTest();
         removeMinTest();
