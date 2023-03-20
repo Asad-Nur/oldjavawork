@@ -88,14 +88,14 @@ public class MyStack <E> {
             return "[]";        //returns empty string if stack is empty
         } else {
             StringBuilder result = new StringBuilder("[");
-            ArrayList<E> elements = new ArrayList<E>();     // Stores element from bottom to top using an Arraylist
+            ArrayList<E> list = new ArrayList<E>();     // Stores element from bottom to top using an Arraylist
 
             for (Node<E> node = last; node != null; node = node.next){
-                elements.add(node.data);        // loops through stack and adds the node data to ArrayList
+                list.add(node.data);        // loops through stack and adds the node data to ArrayList
             }
 
-            for (int i = elements.size() - 1; i >= 0; i--){         // loops through list in reverse
-                result.append(elements.get(i));                     //  appends to stringBuilder
+            for (int i = list.size() - 1; i >= 0; i--){         // loops through list in reverse
+                result.append(list.get(i));                     //  appends to stringBuilder
                 if (i != 0) {
                     result.append(", ");    // adds comma and space after all except last
                 }
