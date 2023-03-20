@@ -73,7 +73,7 @@ public class MyStack <E> {
     // pushes an element to top of stack
     public E push(E item){
         Node<E> newNode = new Node<>(item, last);      // assigns the top element to newNode
-        last = newNode;                                // newNode is last item in stack
+        last            = newNode;                     // newNode is last item in stack
 
         if(isEmpty()){
             first = last = newNode;       // if empty newNode is first item in stack (also still last)
