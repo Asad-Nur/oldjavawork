@@ -9,35 +9,6 @@ import utils.MyStack;
 public class MyStackQueueTest {
 
 
-    public int removeMin(MyStack<Integer> s) {
-        Queue<Integer> q = new LinkedList<Integer>();
-        int min = s.peek();
-
-        while(!s.isEmpty()) {
-            int n = s.pop();
-
-            if(n < min)
-                min = n;
-
-            q.add(n);
-        }
-
-        while(!q.isEmpty()) {
-            int n = q.remove();
-
-            if(n > min)
-                s.push(n);
-        }
-
-        while(!s.isEmpty())
-            q.add(s.pop());
-
-        while(!q.isEmpty())
-            s.push(q.remove());
-
-        return min;
-    }
-
 
     public static void intro(){
         System.out.println();
@@ -428,9 +399,39 @@ public class MyStackQueueTest {
         System.out.println();
         System.out.println();
     }
+
+
+    public static int removeMin(MyStack<Integer> s) {
+        Queue<Integer> q = new LinkedList<Integer>();
+        int min = s.peek();
+
+        while(!s.isEmpty()) {
+            int n = s.pop();
+
+            if(n < min)
+                min = n;
+
+            q.add(n);
+        }
+
+        while(!q.isEmpty()) {
+            int n = q.remove();
+
+            if(n > min)
+                s.push(n);
+        }
+
+        while(!s.isEmpty())
+            q.add(s.pop());
+
+        while(!q.isEmpty())
+            s.push(q.remove());
+
+        return min;
+    }
     public static void removeMinTest() {
         MyStack<Integer> stack = new MyStack<Integer>();
-        MyStackQueueTest testObj = new MyStackQueueTest();
+
         //test removeMin
         System.out.println("----------- \t Test removeMin \t -----------");
         stack.push(2);
@@ -444,7 +445,7 @@ public class MyStackQueueTest {
         stack.push(12);
         stack.push(4);
         System.out.println(stack);
-        testObj.removeMin(stack);
+        removeMin(stack);
         System.out.println(stack);
         System.out.println();
         System.out.println();
