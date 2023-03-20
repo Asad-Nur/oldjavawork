@@ -32,6 +32,7 @@ public class MyQueue<E> {
 
     public boolean add(E item){
         append(item);       //calls on append method to add to end of queue
+        size++;         // increase queue size
         return true;
     }
 
@@ -44,14 +45,13 @@ public class MyQueue<E> {
             last.next = newNode;        // if not empty item is appended after the current last element
             last      = newNode;             // last pointer is now on the newNode
         }
-        size++;         // increase queue size
     }
 
 
     private E detach(){
-        Node<E> nodeToDetach = last;                        // E stores data from top of stack
-        E detachedNode       = nodeToDetach.data;           // element at top of stack is switched to the item next up
-        last                 = last.next;                   // reduce stack size by one since we are removing an element
+        Node<E> nodeToDetach = first;                        // E stores data from top of stack
+        E detachedNode       = nodeToDetach.data;            // element at top of stack is switched to the item next up
+        first                = first.next;                   // reduce stack size by one since we are removing an element
 
         return detachedNode;                                // return the element at the top of the stack
     }
@@ -75,7 +75,9 @@ public class MyQueue<E> {
         if(isEmpty()){
             throw new NoSuchElementException();         // throws exception if queue is empty
         }
-        return detach();        // calls on helper method detach to remove item from front of queue
+        E item = detach();          // calls on helper method detach to remove item from front of queue
+        size--;
+        return item;                // returns and pops the item
     }
 
 
