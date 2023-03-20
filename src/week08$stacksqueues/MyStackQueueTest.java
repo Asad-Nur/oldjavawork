@@ -326,11 +326,17 @@ public class MyStackQueueTest {
         //test push
         System.out.println("----------- \t Test push \t -----------");
         System.out.println(stack.push("Red"));
+        System.out.println(stack);
         System.out.println(stack.push("Orange"));
+        System.out.println(stack);
         System.out.println(stack.push("Yellow"));
+        System.out.println(stack);
         System.out.println(stack.push("Green"));
+        System.out.println(stack);
         System.out.println(stack.push("Blue"));
+        System.out.println(stack);
         System.out.println(stack.push("Indigo"));
+        System.out.println(stack);
         System.out.println(stack.push("Violet"));
         System.out.println(stack);
         System.out.println();
