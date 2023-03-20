@@ -25,8 +25,8 @@ public class MyQueue<E> {
 
     public MyQueue(){
         first = null;
-        last = null;
-        size = 0;
+        last  = null;
+        size  = 0;
     }
     //TODO : Complete Body with Data Fields, Methods and Classes
 
@@ -42,17 +42,18 @@ public class MyQueue<E> {
             first = last = newNode;     // if list is empty both pointers will point to the appended node
         }else{
             last.next = newNode;        // if not empty item is appended after the current last element
-            last = newNode;             // last pointer is now on the newNode
+            last      = newNode;             // last pointer is now on the newNode
         }
         size++;         // increase queue size
     }
 
 
     private E detach(){
-        E item = first.data;        // E stores data from top of stack
-        first = first.next;         // element at top of stack is switched to the item next up
-        size--;                     // reduce stack size by one since we are removing an element
-        return item;                // return the element at the top of the stack
+        Node<E> nodeToDetach = last;                        // E stores data from top of stack
+        E detachedNode       = nodeToDetach.data;           // element at top of stack is switched to the item next up
+        last                 = last.next;                   // reduce stack size by one since we are removing an element
+
+        return detachedNode;                                // return the element at the top of the stack
     }
 
 

@@ -25,8 +25,8 @@ public class MyStack <E> {
     // constructor to initialize data fields
     public MyStack(){
         first = null;
-        last = null;
-        size = 0;
+        last  = null;
+        size  = 0;
     }
 
     //helper method similar to check stack
@@ -46,10 +46,11 @@ public class MyStack <E> {
 
     // helper method for removing item in "pop"
     private E detach(){
-       Node<E> nodeToDetach = last;             // sets the top node as node to detach
-       E detachedNode = nodeToDetach.data;      // stores the top node data in detachedNode
-       last = last.next;                        // top pointer updated to next item in stack
-       return detachedNode;                     // returns the data of the nodeToDetach
+       Node<E> nodeToDetach = last;                             // sets the top node as node to detach
+       E detachedNode       = nodeToDetach.data;                // stores the top node data in detachedNode
+       last                 = last.next;                        // top pointer updated to next item in stack
+
+       return detachedNode;                                     // returns the data of the nodeToDetach
     }
 
 
