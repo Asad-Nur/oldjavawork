@@ -115,9 +115,12 @@ public class LinkedList<E> implements List<E> {
     // returns the index of the first occurrence of the value specified
     @Override
     public int indexOf(E item) {
-        int index = 0;      // initializes starting at the left most index
-        for (Node<E> node = first; node != null; node = node.next) {        // loops through list
-            if (item.equals(node.data)) {       // if the value specified is found
+        // loops through list
+        int index = 0;
+
+        for (Node<E> node = first; node != null; node = node.next) {
+            // if the value specified is found
+            if (item.equals(node.data)) {
                 return index;   //returns the index of the item
             }
             index++;
