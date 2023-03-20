@@ -409,6 +409,7 @@ public class MyStackQueueTest {
 
     public static int removeMin(MyStack<Integer> s) {
         Queue<Integer> q = new LinkedList<Integer>();
+
         int min = s.peek();
 
         while(!s.isEmpty()) {
@@ -419,14 +420,12 @@ public class MyStackQueueTest {
 
             q.add(n);
         }
-
         while(!q.isEmpty()) {
             int n = q.remove();
 
             if(n > min)
                 s.push(n);
         }
-
         while(!s.isEmpty())
             q.add(s.pop());
 
@@ -459,11 +458,11 @@ public class MyStackQueueTest {
 
     public static void main(String[] args) {
         intro();
-//        libraryQueueVersionTest();
-//        libraryStackVersionTest();
-//        myQueueVersionTest();
+        libraryQueueVersionTest();
+        libraryStackVersionTest();
+        myQueueVersionTest();
         myStackVersionTest();
-//        removeMinTest();
+        removeMinTest();
     }
 
 }
