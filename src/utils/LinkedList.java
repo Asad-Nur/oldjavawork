@@ -76,8 +76,8 @@ public class LinkedList<E> implements List<E> {
     @Override
     public void clear() {
         first = null;
-        last = null;
-        size = 0;
+        last  = null;
+        size  = 0;
     }
 
 
@@ -184,9 +184,9 @@ public class LinkedList<E> implements List<E> {
     @Override
     public E set(int index, E item) {
         checkIndex(index);
-        Node<E> target = node(index);           //find and store address of target node
-        E oldItem = target.data;                //store old item from node
-        target.data = item;                     //update item in node
+        Node<E> target = node(index);           // find and store address of target node
+        E oldItem      = target.data;           // store old item from node
+        target.data    = item;                  // update item in node
         return oldItem;
     }
 

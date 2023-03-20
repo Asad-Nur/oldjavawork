@@ -109,9 +109,9 @@ public class SinglyLinkedList<T> {
 
     public T set(int index, T item){
         checkIndex(index);
-        Node<T> target = node(index);           //find and store address of target node
-        T oldItem = target.data;                //store old item from node
-        target.data = item;                     //update item in node
+        Node<T> target  = node(index);              // find and store address of target node
+        T oldItem       = target.data;              // store old item from node
+        target.data     = item;                     // update item in node
         return oldItem;
     }
     public int size(){
