@@ -1,5 +1,7 @@
 package utils;
 
+import java.util.NoSuchElementException;
+
 /*****************************************************************
  * This class LinkedList implements linked data structures using
  * a Doubly Linked List (DLL).
@@ -147,6 +149,9 @@ public class LinkedList<E> implements List<E> {
         return size == 0;       // if the size is 0 returns true
     }
 
+    public Iterator<E> iterator() {
+        return new LinkedIterator();
+    }
 
     // private helper class counter for finding the node address at
     // the index location in DLL
@@ -215,21 +220,43 @@ public class LinkedList<E> implements List<E> {
     }
 
     //**********************************************************************************
-    public class LinkedIterator implements Iterator<E>{
+    private class LinkedIterator implements Iterator<E> {
+
+        int position;               // stores current index position in the list
+        Node<E> current;            // stores the node at the current counter index
+        boolean isAbleToRemove;     // stores if value can be removed
+
+        public LinkedIterator() {
+            position       = 0;
+            current        = first;
+            isAbleToRemove = false;
+        }
 
         @Override
         public boolean hasNext() {
-            return false;
+            return position < size;
         }
 
         @Override
         public E next() {
-            return null;
+            if (!hasNext()) {
+                throw new NoSuchElementException("No next value!");
+            }
+            E currentItem = current.data;
+            current       = current.next;
+
+            position++;
+            isAbleToRemove = true;
+            return currentItem;
         }
 
         @Override
         public void remove() {
-
+            if(!isAbleToRemove){
+                throw new IllegalStateException("Not Able To Remove.");
+            }
+            LinkedList.this.remove(position - 1);
+            isAbleToRemove = false;
         }
     }
 
