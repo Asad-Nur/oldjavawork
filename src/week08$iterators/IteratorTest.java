@@ -1,5 +1,5 @@
 package week08$iterators;
-
+import utils.ArrayList;
 import utils.LinkedList;
 import utils.Iterator;
 public class IteratorTest {
@@ -21,7 +21,7 @@ public class IteratorTest {
         System.out.println();
     }
 
-/*
+
     public static void testArrayIterator(){
         System.out.println();
 
@@ -81,7 +81,7 @@ public class IteratorTest {
         System.out.println(list);
 
     }
-    */
+
 
     public static void testLinkedIterator(){
         System.out.println();
