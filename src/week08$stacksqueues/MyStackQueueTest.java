@@ -406,7 +406,7 @@ public class MyStackQueueTest {
         System.out.println();
     }
 
-    public static void StackToQueue(MyStack<Integer> stack) {
+    public static void stackToQueue(MyStack<Integer> stack) {
         MyQueue<Integer> queue = new MyQueue<>();
 
         while (!stack.isEmpty()) {
@@ -414,10 +414,10 @@ public class MyStackQueueTest {
         }
         System.out.println(queue);
     }
-    public static void StackToQueueTest(){
+    public static void stackToQueueTest(){
         MyStack<Integer> stack = new MyStack<>();
         System.out.println();
-        System.out.println("----------- \t Test StackToQueue \t -----------");
+        System.out.println("----------- \t Test stackToQueue \t -----------");
         System.out.println();
         stack.push(2);
         stack.push(4);
@@ -426,12 +426,12 @@ public class MyStackQueueTest {
         stack.push(9);
         stack.push(0);
         System.out.println("Original Stack: " + stack);
-        System.out.print("Stack to Queue: ");  StackToQueue(stack);
+        System.out.print("Stack to Queue: ");  stackToQueue(stack);
         System.out.println();
         System.out.println();
     }
 
-    public static void QueueToStack(MyQueue<Integer> queue) {
+    public static void queueToStack(MyQueue<Integer> queue) {
         MyStack <Integer> stack = new MyStack<>();
 
         while (!queue.isEmpty()) {
@@ -440,10 +440,10 @@ public class MyStackQueueTest {
         System.out.println(stack);
     }
 
-    public static void QueueToStackTest(){
+    public static void queueToStackTest(){
         MyQueue<Integer> queue = new MyQueue<>();
         System.out.println();
-        System.out.println("----------- \t Test QueueToStack \t -----------");
+        System.out.println("----------- \t Test queueToStack \t -----------");
         System.out.println();
         queue.add(2);
         queue.add(4);
@@ -452,35 +452,35 @@ public class MyStackQueueTest {
         queue.add(9);
         queue.add(0);
         System.out.println("Original Queue: " + queue);
-        System.out.print("Queue to Stack: ");  QueueToStack(queue);
+        System.out.print("Queue to Stack: ");  queueToStack(queue);
         System.out.println();
         System.out.println();
     }
 
-    public static int removeMin(MyStack<Integer> s) {
-        Queue<Integer> q = new LinkedList<Integer>();
+    public static int removeMin(MyStack<Integer> stack) {
+        Queue<Integer> queue = new LinkedList<Integer>();
 
-        int min = s.peek();
+        int min = stack.peek();
 
-        while(!s.isEmpty()) {
-            int n = s.pop();
+        while(!stack.isEmpty()) {
+            int n = stack.pop();
 
             if(n < min)
                 min = n;
 
-            q.add(n);
+            queue.add(n);
         }
-        while(!q.isEmpty()) {
-            int n = q.remove();
+        while(!queue.isEmpty()) {
+            int n = queue.remove();
 
             if(n > min)
-                s.push(n);
+                stack.push(n);
         }
-        while(!s.isEmpty())
-            q.add(s.pop());
+        while(!stack.isEmpty())
+            queue.add(stack.pop());
 
-        while(!q.isEmpty())
-            s.push(q.remove());
+        while(!queue.isEmpty())
+            stack.push(queue.remove());
 
         return min;
     }
@@ -512,8 +512,8 @@ public class MyStackQueueTest {
         libraryStackVersionTest();
         myQueueVersionTest();
         myStackVersionTest();
-        StackToQueueTest();
-        QueueToStackTest();
+        stackToQueueTest();
+        queueToStackTest();
         removeMinTest();
     }
 
