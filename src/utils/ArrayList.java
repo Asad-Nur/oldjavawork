@@ -129,6 +129,9 @@ public class ArrayList <E> implements List<E> {
         return -1;      //NOT FOUND
     }
 
+    public Iterator<E> iterator() {
+        return new ArrayIterator();
+    }
 
     // returns true if list has no occupied items
     public boolean isEmpty(){
@@ -208,7 +211,15 @@ public class ArrayList <E> implements List<E> {
     }
 
 
-    public class ArrayIterator implements Iterator<E>{
+    private class ArrayIterator implements Iterator<E>{
+
+        int position;
+        boolean isAbleToRemove;
+
+        public ArrayIterator() {
+            position       = 0;
+            isAbleToRemove = false;
+        }
 
         @Override
         public boolean hasNext() {
