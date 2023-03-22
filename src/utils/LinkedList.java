@@ -56,7 +56,8 @@ public class LinkedList<E> implements List<E> {
     private void append(E item){
         Node<E> newNode = new Node<>(last, item, null);     // declares Node newNode
         if (isEmpty()) {
-            first = last = newNode;        // if list is empty both pointers will point to the appended node
+            first = newNode;        // if list is empty both pointers will point to the appended node
+
         } else {
             last.next = newNode;        // if not empty item is appended after the current last element
         }
@@ -267,10 +268,6 @@ public class LinkedList<E> implements List<E> {
         E data;             // data storage
         Node<E> next;       // self-reference after current node
         Node<E> prev;       // self-reference before current node
-
-        private Node(Node<E> prev, E data){
-            this(prev, data, null);
-        }
 
         private Node(Node<E> prev, E data, Node<E> next){
             this.data = data;

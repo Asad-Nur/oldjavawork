@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
 /*****************************************************************
  * This class MyQueue implements a FIFO data structure using a
  * Singly Linked List (SLL).
- *
+
  * TODO : Please Complete the Following
  *        1. Comment all steps in your methods used for its
  *           implementation. Be clear and precise.
@@ -104,10 +104,6 @@ public class MyQueue<E> {
     private static class Node<E>{
         E data;             // data storage
         Node<E> next;       // self-reference
-
-        public Node(E data){
-            this(data, null);
-        }
 
         public Node(E data, Node<E> next){
             this.data = data;
