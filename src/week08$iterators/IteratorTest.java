@@ -146,6 +146,7 @@ public class IteratorTest {
 
     public static void main(String[] args) {
         intro();
+        testArrayIterator();
         testLinkedIterator();
     }
 
