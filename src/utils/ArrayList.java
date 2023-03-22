@@ -1,5 +1,7 @@
 package utils;
 
+import java.util.NoSuchElementException;
+
 /*****************************************************************
  * This class ArrayList implements a contiguous block of data
  * using an array.
@@ -213,8 +215,8 @@ public class ArrayList <E> implements List<E> {
 
     private class ArrayIterator implements Iterator<E>{
 
-        int position;
-        boolean isAbleToRemove;
+        int position;               // stores current index position in the list
+        boolean isAbleToRemove;     // stores if value can be removed
 
         public ArrayIterator() {
             position       = 0;
@@ -223,17 +225,28 @@ public class ArrayList <E> implements List<E> {
 
         @Override
         public boolean hasNext() {
-            return false;
+            return position < size;
         }
 
         @Override
         public E next() {
-            return null;
+            if(!hasNext()){
+                throw new NoSuchElementException("No next value");
+            }
+
+            E currentItem = data[position];
+            position++;
+            isAbleToRemove = true;
+            return currentItem;
         }
 
         @Override
         public void remove() {
-
+            if(!isAbleToRemove){
+                throw new IllegalStateException("Not Able To Remove.");
+            }
+            ArrayList.this.remove(position - 1);
+            isAbleToRemove = false;
         }
     }
 
