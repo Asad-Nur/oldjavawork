@@ -93,16 +93,19 @@ public class LinkedList<E> implements List<E> {
     private E detach(int index){
         Node<E> target;
 
-        if(index == 0){
-            target = first;             //stores the first nodes address (only for universal readability)
-            first = first.next;         //reassigns first node in list
+        if(index == 0) {
+            target      = first;              // stores the first nodes address (only for universal readability)
+            first       = first.next;         // reassigns first node in list
+
+        } else if (index == size - 1) {
+            target      = last;               // stores the last nodes address (only for universal readability)
+            last        = last.prev;          // reassigns last node in list
 
         } else{
 
-            Node<E> nodeBefore  = node(index - 1);   //returning address of node before
-            target              = nodeBefore.next;           //current target node comes after the node before
-            nodeBefore.next     = target.next;      //this reassignment updates order of the list
-            target.next         = null;                 //detaches the node from the list
+            Node<E> nodeBefore      = node(index).prev;      // returning address of node before
+            target                  = node(index);           // current target node
+            nodeBefore.next         = target.next;           // this reassignment updates order of the list
         }
 
         return target.data;
@@ -133,13 +136,15 @@ public class LinkedList<E> implements List<E> {
 
 
     private void insertBefore(int index, E item) {
-        if (index == 0) {       //if inserting before first item (index 0)
-            first = new Node<>(null, item, first);        // item's prev pointer goes to null
+        if (index == 0) {       // if inserting before first item (index 0)
+            first =  new Node<>(null,item,first);   // item's next pointer goes to first
 
         } else {
             Node<E> nodeBefore      = node(index - 1);
             Node<E> target          = nodeBefore.next;
-            nodeBefore.next         = new Node<>(nodeBefore, item, target);
+            Node<E> newNode         = new Node<>(nodeBefore, item, target);
+            target.prev             = newNode;
+            nodeBefore.next         = newNode;
         }
     }
 
@@ -157,13 +162,25 @@ public class LinkedList<E> implements List<E> {
     // private helper class counter for finding the node address at
     // the index location in DLL
     private Node<E> node(int index){
-        Node<E> current = first;
+        Node<E> current;
 
-        for (int i = 0; i < index; i++) {
-            current = current.next;
+        if (index < size / 2){
+            current = first;
+
+        for (int i = 0; i < index; i++) {       // loops through first half starting from head if index is
+            current = current.next;             // in the first half of the list
+        }
+        } else {
+            current = last;
+
+            for (int i = size - 1; i > index; i--) {        // loops through second half of the list
+                current = current.prev;                     // starting from tail if index is in second half
+            }
         }
         return current;
     }
+
+
 
 
     @Override
